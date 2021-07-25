@@ -1,7 +1,7 @@
 
 public class Stack {
 
-	Node head;   
+	Node top;     
 
 	class Node{
 		Node next;
@@ -17,16 +17,40 @@ public class Stack {
 	}
 	
 	
-	public void push(int data)    
+	public void push(int data)     
 	 {
 		 Node newNode = new Node(data);
-		 newNode.next = head;
-		 head = newNode;
+		 newNode.next = top;
+		 top = newNode;
 	 }
+	
+	public void peek()     
+	{
+		if(top==null){
+			System.out.println("Stack is Underflow");
+		}
+		else{
+			System.out.println("Peak element is"+top.data);		
+			}
+	}
+	
+	public void pop()          
+	{
+		while(top!=null) {
+		if(top==null){
+			System.out.println("Stack is Underflow");
+		}
+		else
+		{
+			System.out.println("deleted element is"+top.data);		
+			top=top.next;
+		}		
+	}
+	}
 	
 	public void print()   
 	 {			 
-		 Node temp = head;
+		 Node temp = top;
 		 while (temp != null)
 		 {
 			 System.out.print(temp.data + " -> ");
